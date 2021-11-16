@@ -1,27 +1,37 @@
-# ProductCatalogDescontrolada
+<h1 align="left">Catálogo de produtos Descontrolada</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
+<p align="left">Teste de desenvolvimento, criado com Angular 12, consiste em uma mini aplicação que realiza o gerenciamento de produtos, com busca paginada, CRUD, httpCLient etc..</p>
 
-## Development server
+![ProductCatalogDescontrolada](https://user-images.githubusercontent.com/42192877/141975024-ff0fa24b-e58e-4d26-b2f2-da32d0ca6296.gif)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Cobertura testes unitarios até o momento
 
-## Code scaffolding
+![Captura de tela 2021-11-16 081120](https://user-images.githubusercontent.com/42192877/141975161-889ee258-ef6b-4499-a9dc-760f57c03e53.png)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Principais dependências
+1. "@angular/material": "^12.2.11"
+2. "ng2-currency-mask": "^12.0.3"
 
-## Build
+### Executar o projeto
+AVISO
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+> Verifique se você está rodando o node 12.4.0, com o comando node -v em uma janela de terminal / console. As versões mais antigas produzem erros, mas as versões mais recentes funcionam bem.
 
-## Running unit tests
+1. npm install
+2. npm start
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Comandos Angular CLI
 
-## Running end-to-end tests
+### Servidor de desenvolvimento
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Execute `ng serve` para um servidor de desenvolvimento. Navegue até `http: // localhost: 4200 /`. O aplicativo será recarregado automaticamente se você alterar qualquer um dos arquivos de origem.
 
-## Further help
+### Build
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Execute `ng build` para construir o projeto. Os artefatos de construção serão armazenados no diretório `dist /`.
+
+### Executando testes unitarios
+
+Execute `ng test` para executar os testes de unidade via [Karma](https://karma-runner.github.io).
+
+`ng test --code--coverage` Para acompanhar a cobertura dos testes.
