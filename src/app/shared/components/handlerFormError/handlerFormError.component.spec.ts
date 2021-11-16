@@ -29,18 +29,16 @@ describe('HandlerFormErrorComponent', () => {
 
   it('(U) should return error message for invalid form', () => {
     let mockForm = new FormBuilder().group({
-      field: [null, Validators.compose([Validators.max(10)])],
+      field: [null, Validators.compose([Validators.required])],
     });
 
-    mockForm.controls.field.setValue(10000);
+    mockForm.controls.field.setValue(null);
     mockForm.controls.field.markAllAsTouched();
     mockForm.controls.field.updateValueAndValidity();
 
     component.control = mockForm.controls.field;
     component.label = 'field';
 
-    expect(component.errorMessage).toContain(
-      'field - O valor a resgatar não pode ser maior que'
-    );
+    expect(component.errorMessage).toContain('field - Campo obrigatório');
   });
 });

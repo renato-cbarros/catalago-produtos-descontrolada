@@ -1,5 +1,7 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MainRoutingModule } from '../../main-routing.module';
 
 import { AsideMenuComponent } from './aside-menu.component';
 
@@ -9,10 +11,10 @@ describe('AsideMenuComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AsideMenuComponent ],
+      declarations: [AsideMenuComponent],
+      imports: [RouterTestingModule, MainRoutingModule],
       schemas: [NO_ERRORS_SCHEMA],
-    })
-    .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {

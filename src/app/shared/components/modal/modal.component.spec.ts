@@ -44,12 +44,4 @@ describe('ModalComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('(U) should close modal', () => {
-    let el = fixture.debugElement.nativeElement;
-
-    el.querySelector('#modal-btn').click();
-
-    expect(component.dialogRef.componentInstance).toBeFalsy();
-  });
 });
