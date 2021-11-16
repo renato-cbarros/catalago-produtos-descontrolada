@@ -1,1 +1,202 @@
-/* You can add global styles to this file, and also import other style files */
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+// Font family
+@use "~@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$primary-palette: (
+  50: #a000c6,
+  contrast: (
+    50: rgba(black, 0.87),
+  ),
+);
+
+$secondary-palette: (
+  50: var(--color-secondary),
+  contrast: (
+    50: rgba(black, 0.87),
+  ),
+);
+
+$accent-palette: (
+  50: var(--color-accent),
+  contrast: (
+    50: rgba(black, 0.87),
+  ),
+);
+
+$product-catalog-descontrolada-primary: mat.define-palette(
+  $primary-palette,
+  50
+);
+$product-catalog-descontrolada-secondary: mat.define-palette(
+  $secondary-palette,
+  50
+);
+$product-catalog-descontrolada-accent: mat.define-palette($accent-palette, 50);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$product-catalog-descontrolada-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $product-catalog-descontrolada-primary,
+      secondary: $product-catalog-descontrolada-secondary,
+      accent: $product-catalog-descontrolada-accent,
+    ),
+    typography:
+      mat.define-typography-config(
+        $font-family: "Open Sans",
+      ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($product-catalog-descontrolada-theme);
+
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+// RESET CSS
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  list-style: none;
+}
+
+:root {
+  --color-primary: #a000c6;
+  --color-secondary: #e8ab12;
+  --color-accent: #00b3eb;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
+}
+
+// Global classes
+.container-main {
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  overflow: auto;
+  background-color: #ffffff;
+}
+
+.logo {
+  font-family: "Abril Fatface", cursive !important;
+  font-weight: lighter;
+}
+
+.title {
+  position: relative;
+  font-size: 1.3em;
+  font-family: "Open Sans", sans-serif;
+  color: #000000;
+  margin-bottom: 40px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 30px;
+    height: 4px;
+    border-radius: 5px;
+    background-color: var(--color-accent);
+  }
+}
+
+.default-btn {
+  border-radius: 50px !important;
+  border: 1px solid var(--color-accent) !important;
+  background-color: var(--color-accent);
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.default-btn-transparent {
+  border-radius: 50px !important;
+  border: 1px solid var(--color-accent) !important;
+  background-color: transparent;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.custom-scroll {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 100px;
+    background: #ffffff38;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background-color: #ffffff36;
+  }
+}
+
+.content-form {
+  width: 100%;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.field-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  .field {
+    flex: 1;
+
+    mat-form-field {
+      width: 100%;
+    }
+  }
+}
+
+.btns-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  button {
+    width: 30%;
+  }
+}
+
+@media (max-width: 414px) {
+  .btns-group {
+    button {
+      width: 50%;
+    }
+  }
+}
+
+.required {
+  color: #ff0000;
+}

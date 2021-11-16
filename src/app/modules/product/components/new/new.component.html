@@ -1,0 +1,79 @@
+<section class="container-main">
+  <h2 class="title">Cadastrar produto</h2>
+
+  <form [formGroup]="formDataProduct" *ngIf="formDataProduct" class="content-form mat-elevation-z8">
+    <div class="field-group">
+      <div class="field">
+        <mat-form-field appearance="fill">
+          <mat-label>Nome:<span class="required"> *</span></mat-label>
+          <input matInput formControlName="nome" type="text">
+        </mat-form-field>
+        <app-handlerFormError [control]="formDataProduct?.controls?.nome" label="Nome">
+        </app-handlerFormError>
+      </div>
+
+      <div class="field">
+        <mat-form-field appearance="fill">
+          <mat-label>Preço de venda:<span class="required"> *</span></mat-label>
+          <input matInput formControlName="precoDeVenda" currencyMask
+            [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" type="text">
+        </mat-form-field>
+        <app-handlerFormError [control]="formDataProduct?.controls?.precoDeVenda" label="Preço de venda">
+        </app-handlerFormError>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field">
+        <mat-form-field appearance="fill">
+          <mat-label>Descrição:<span class="required"> *</span></mat-label>
+          <textarea matInput formControlName="descricao" type="text"></textarea>
+        </mat-form-field>
+        <app-handlerFormError [control]="formDataProduct?.controls?.descricao" label="Descrição">
+        </app-handlerFormError>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field">
+        <mat-form-field appearance="fill">
+          <mat-label>Quantidade:<span class="required"> *</span></mat-label>
+          <input matInput formControlName="quantidade" type="number">
+        </mat-form-field>
+        <app-handlerFormError [control]="formDataProduct?.controls?.quantidade" label="Quantidade">
+        </app-handlerFormError>
+      </div>
+
+      <div class="field">
+        <mat-form-field appearance="fill">
+          <mat-label>Tipo:<span class="required"> *</span></mat-label>
+          <mat-select formControlName="tipo">
+            <mat-option *ngFor="let type of productTypes" [value]="type">{{ type }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <app-handlerFormError [control]="formDataProduct?.controls?.tipo" label="Tipo">
+        </app-handlerFormError>
+      </div>
+
+      <div class="field">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Data de validade:<span class="required"> *</span></mat-label>
+          <input matInput formControlName="dataDeValidade" type="datetime-local" [min]="currentDate">
+        </mat-form-field>
+        <app-handlerFormError [control]="formDataProduct?.controls?.dataDeValidade" label="Data de validade">
+        </app-handlerFormError>
+      </div>
+    </div>
+
+    <div class="btns-group">
+      <button (click)="onSubmit('confirm')" type="button" mat-stroked-button class="default-btn"
+        *ngIf="!productData?.id">Confirmar</button>
+      <button (click)="onSubmit('edit')" type="button" mat-stroked-button class="default-btn"
+        *ngIf="productData?.id">Editar</button>
+      <button (click)="onSubmit('delete')" type="button" mat-raised-button color="warn" class="default-btn"
+        *ngIf="productData?.id">Deletar</button>
+      <button (click)="onSubmit('cancel')" type="button" mat-stroked-button
+        class="default-btn-transparent">Cancelar</button>
+    </div>
+  </form>
+</section>

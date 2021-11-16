@@ -1,0 +1,55 @@
+<section class="container-main">
+  <h2 class="title">Lista de produtos</h2>
+
+  <div class="content-table mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="table" matSort
+      [hidden]="!(dataSource?.filteredData && (dataSource.filteredData.length > 0))">
+
+      <!-- Weight nome -->
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+        <td mat-cell *matCellDef="let element" [routerLink]="['/produto/listar', element.id]"> {{ element.nome }} </td>
+      </ng-container>
+
+      <!-- Symbol precoDeVenda -->
+      <ng-container matColumnDef="precoDeVenda">
+        <th mat-header-cell *matHeaderCellDef> Preço de venda </th>
+        <td mat-cell *matCellDef="let element"> {{ element.precoDeVenda | currency:'R$' }} </td>
+      </ng-container>
+
+      <!-- Symbol descricao -->
+      <ng-container matColumnDef="descricao">
+        <th mat-header-cell *matHeaderCellDef> Descrição </th>
+        <td mat-cell *matCellDef="let element"> {{ element.descricao }} </td>
+      </ng-container>
+
+      <!-- Symbol quantidade -->
+      <ng-container matColumnDef="quantidade">
+        <th mat-header-cell *matHeaderCellDef> Quantidade </th>
+        <td mat-cell *matCellDef="let element"> {{ element.quantidade }} </td>
+      </ng-container>
+
+      <!-- Symbol tipo -->
+      <ng-container matColumnDef="tipo">
+        <th mat-header-cell *matHeaderCellDef> Tipo </th>
+        <td mat-cell *matCellDef="let element"> {{ element.tipoNome }} </td>
+      </ng-container>
+
+      <!-- Symbol dataDeValidade -->
+      <ng-container matColumnDef="dataDeValidade">
+        <th mat-header-cell *matHeaderCellDef> Data de validade </th>
+        <td mat-cell *matCellDef="let element"> {{ element.dataDeValidade | date }} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns" class="table-tr-header"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-tr-body"></tr>
+    </table>
+
+    <div class="table-spinner" *ngIf="!dataSource?.filteredData || (dataSource.filteredData.length < 1)">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <mat-paginator [length]="length" [pageSize]="pageSize" (page)="handlerChangePag($event)" showFirstLastButtons>
+    </mat-paginator>
+  </div>
+</section>

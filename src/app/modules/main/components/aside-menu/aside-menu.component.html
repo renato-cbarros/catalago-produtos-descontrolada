@@ -1,0 +1,26 @@
+<aside class="container-aside-menu" [ngClass]="{'container-half-aside-menu' : btnStatus}">
+  <nav class="nav-aside-menu">
+    <ul>
+      <li>
+        <mat-accordion class="nav-accordion">
+          <mat-expansion-panel [expanded]="activeLink?.isActive" routerLinkActive #activeLink="routerLinkActive">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="text-op-menu" [ngClass]="{'half-aside-menu-font-size' : btnStatus}">
+                <mat-icon>inventory</mat-icon>
+                Produtos
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <a mat-button class="text-op-menu" routerLink="/produto/listar" routerLinkActive="active-link"
+              [ngClass]="{'half-aside-menu-font-size' : btnStatus}">
+              <mat-icon>list_alt</mat-icon> Listar
+            </a>
+            <a mat-button class="text-op-menu" routerLink="/produto/novo" routerLinkActive="active-link"
+              [ngClass]="{'half-aside-menu-font-size' : btnStatus}">
+              <mat-icon>add_circle_outline</mat-icon> Novo
+            </a>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </li>
+    </ul>
+  </nav>
+</aside>

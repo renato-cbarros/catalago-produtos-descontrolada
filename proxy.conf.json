@@ -1,0 +1,10 @@
+{
+  "/api/*": {
+    "target": "https://descontrolada-backend.cblx.com.br",
+    "secure": false,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<header class="container-header">
+  <mat-toolbar class="header-toolbar">
+    <div>
+      <button mat-icon-button (click)="changeBtnStatus(!isBtnClicked)">
+        <mat-icon>{{isBtnClicked ? 'menu' : 'close'}}</mat-icon>
+      </button>
+      <h1 class="logo">Descontrolada®</h1>
+    </div>
+
+    <p>E-mail da Loja: {{ email }}</p>
+  </mat-toolbar>
+</header>

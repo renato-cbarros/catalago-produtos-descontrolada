@@ -1,0 +1,29 @@
+<div class="modal-container">
+  <div class="modal-content mat-elevation-z8">
+    <div class="modal-header">
+      <h2>
+        {{ data.title }}
+      </h2>
+
+      <button mat-icon-button color="warn" (click)="onNoClick()" *ngIf="data?.isBtn">
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <div class="modal-icon">
+        <mat-icon *ngIf="data.result === 'error'" color="warn">error_outline</mat-icon>
+        <mat-icon *ngIf="data.result === 'success'" color="accent">check_circle_outline</mat-icon>
+        <mat-icon *ngIf="data.result === 'warn'" color="primary">error_outline</mat-icon>
+      </div>
+
+      <pre class="modal-text">{{ data.text }}</pre>
+    </div>
+
+    <div class="modal-footer" *ngIf="data?.isBtn">
+      <button id="modal-btn" mat-raised-button class="default-btn" (click)="onYesClick()">{{ data.btnTextYes }}</button>
+      <button id="modal-btn" mat-raised-button class="default-btn-transparent"
+        (click)="onNoClick()">{{ data.btnTextNo }}</button>
+    </div>
+  </div>
+</div>

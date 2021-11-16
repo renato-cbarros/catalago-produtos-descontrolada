@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  BASE_API_URL:
+    'https://cors-anywhere.herokuapp.com/https://descontrolada-backend.cblx.com.br/lojas/',
+  EMAIL_LOJA: 'renato.barros_test_descontrolada@email.com',
 };
 
 /*

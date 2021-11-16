@@ -1,0 +1,8 @@
+<div class="container">
+  <app-header (statusBtn)="listenStatusBtn($event)" class="header"></app-header>
+  <app-aside-menu [btnStatus]="statusBtn" class="aside-menu"></app-aside-menu>
+  <main class="main">
+    <router-outlet></router-outlet>
+  </main>
+  <app-footer class="footer"></app-footer>
+</div>
